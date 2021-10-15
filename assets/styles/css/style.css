@@ -297,7 +297,7 @@ body {
     flex-direction: column;
   }
   .game .player {
-    padding: 20px 0;
+    padding: 10px 0;
   }
 
   .dice_container {
@@ -305,9 +305,11 @@ body {
     padding: 0;
     width: 100px !important;
     height: 100px !important;
+    position: absolute;
+    top: 22% !important;
+    left: 47% !important;
     display: flex;
     justify-content: space-between;
-    left: 47% !important;
   }
   .dice_container img {
     margin-left: 5px !important;

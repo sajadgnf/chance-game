@@ -234,15 +234,15 @@ body {
         flex-direction: column;
 
         .player {
-            padding: 20px 0;
+            padding: 10px 0;
         }
     }
 
     .dice_container {
         @include spaceStyle(0, 0, 100px !important, 100px !important);
+        @include positions(absolute, 22% !important, 47% !important);
         display: flex;
         justify-content: space-between;
-        left: 47% !important;
 
         img {
             margin-left: 5px !important;
