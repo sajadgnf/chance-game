@@ -1,0 +1,267 @@
+@import "functions";
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+    user-select: none;
+}
+
+body {
+    @include flexStyle;
+    min-height: 100vh;
+    background: rgb(255, 0, 0);
+    background: linear-gradient(128deg, rgba(255, 0, 0, 1) 0%, rgba(178, 107, 255, 1) 100%);
+}
+
+.game {
+    @include shadowBox;
+    @include flexStyle;
+    @include spaceStyle(0, 0, 900px, 600px);
+    position: relative;
+
+    .player {
+        @include flexStyle;
+        @include spaceStyle(0, 0, 100%, 100%);
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: #ebc9c3;
+        font-size: 20px;
+        transition: all 0.5s ease;
+    }
+
+    .score {
+        @include fontStyle(50px, #ca0a0a, center);
+        margin-top: 10px;
+    }
+
+    .restart_game {
+        @include positions(absolute, 10%, 50%);
+        @include shadowBox;
+        @include flexStyle;
+        padding: 10px 20px;
+        background: #fff;
+        transform: translate(-50%);
+        cursor: pointer;
+        border-radius: 40px;
+        border: none;
+        outline: none;
+
+        &:active {
+            transform: translate(-50%, 3px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            @include spaceStyle(0, 0, 20px, 20px);
+            margin-right: 5px;
+        }
+    }
+
+    .dice_container {
+        @include positions(absolute, 25%, 50%);
+        @include spaceStyle(0, 0, 100px, 200px);
+        transform: translate(-50%);
+
+        img {
+            @include spaceStyle(0, 0, 100%, 49%);
+            border-radius: 10px;
+            display: none;
+        }
+    }
+
+    .roll {
+        @include positions(absolute, 68%, 50%);
+        @include shadowBox;
+        @include flexStyle;
+        padding: 10px 20px;
+        background: #fff;
+        transform: translate(-50%);
+        cursor: pointer;
+        border-radius: 40px;
+        border: none;
+        outline: none;
+        &:active {
+            transform: translate(-50%, 3px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            @include spaceStyle(0, 0, 25px, 25px);
+            margin-right: 5px;
+        }
+    }
+
+    .hold {
+        @include positions(absolute, 77%, 50%);
+        @include shadowBox;
+        @include flexStyle;
+        background: #fff;
+        padding: 10px 20px;
+        transform: translate(-50%);
+        cursor: pointer;
+        border-radius: 40px;
+        border: none;
+        outline: none;
+
+        &:active {
+            transform: translate(-50%, 3px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            @include spaceStyle(0, 0, 25px, 25px);
+            margin-right: 5px;
+        }
+    }
+
+    .final_score_container {
+        @include positions(absolute, 87%, 50%);
+        @include shadowBox;
+        @include flexStyle;
+        background: #fff;
+        padding: 10px 32px;
+        transform: translate(-50%);
+        cursor: pointer;
+        border-radius: 40px;
+        border: none;
+        outline: none;
+    }
+}
+
+.current {
+    @include shadowBox;
+    @include flexStyle;
+    @include fontStyle(14px, #fff, center);
+    @include spaceStyle(0, 0, 220px, 100px);
+    flex-direction: column;
+    background: rgb(202, 10, 10);
+
+    .current_score {
+        @include fontStyle(25px, #fff, center);
+        margin-top: 4px;
+    }
+}
+
+.inactive {
+    opacity: 0.5;
+}
+
+.win {
+    @include fontStyle(50px, rgb(29, 218, 107), center);
+    margin-bottom: 100px;
+}
+
+.win_container {
+    opacity: 1;
+    color: #ca0a0a;
+    background-color: rgb(71, 70, 70) !important;
+}
+
+// modal
+.modal {
+    @include shadowBox;
+    @include spaceStyle(0, 30px, 400px, 200px);
+    position: fixed;
+    background-color: #fff;
+    text-align: center;
+    animation: modal 0.5s;
+
+    @keyframes modal {
+        0% {
+            top: -100%;
+        }
+        100% {
+            top: 37%;
+        }
+    }
+
+    .modal_head {
+        @include fontStyle(20px, rgb(68, 54, 54), center);
+    }
+
+    .modal_input {
+        @include spaceStyle((20px auto), 5px, 300px, 40px);
+        border: none;
+        background-color: #e6dfde;
+        border-radius: 5px;
+        outline: none;
+        display: block;
+    }
+
+    .modal_btn {
+        @include spaceStyle(0, 5px, 100px, 40px);
+        @include fontStyle(20px, #fff, center);
+        border: none;
+        cursor: pointer;
+        background-color: #00b7ff;
+        border-radius: 5px;
+        outline: none;
+    }
+}
+
+// Meida
+
+@include media(XL) {
+    .game {
+        width: 750px;
+    }
+}
+
+@include media(L) {
+    .player {
+        font-size: 14px !important;
+    }
+    .dice_container {
+        transform: translate(-35%) !important;
+        img {
+            @include spaceStyle(0, 0, 70% !important, 70px !important);
+        }
+    }
+    .current {
+        @include spaceStyle(0, 0, 120px, 85px);
+    }
+    .restart_game,
+    .hold,
+    .roll {
+        font-size: 12px !important;
+    }
+}
+
+@include media(M) {
+    .game{
+        height: 635px;
+    }
+    .player.inactive {
+        display: none !important; 
+    }
+
+    .win {
+        margin-bottom: 300px;
+    }
+
+    .player.win_container {
+        display: flex !important;
+    }
+
+    .player {
+        position: absolute;
+        width: 100%;
+    }
+
+    .restart_game {
+        @include positions(absolute, 58% !important, 20% !important);
+    }
+    .final_score_container {
+        @include positions(absolute, 48% !important, 20% !important);
+    }
+
+    .hold {
+        @include positions(absolute, 58% !important, 80% !important);
+    }
+    .roll {
+        @include positions(absolute, 48% !important, 80% !important);
+    }
+}

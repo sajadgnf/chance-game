@@ -1,0 +1,47 @@
+@mixin flexStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin shadowBox {
+    box-shadow: 0 0 5px 0 #333;
+    border-radius: 10px;
+}
+
+@mixin fontStyle($fs, $color, $text-align) {
+    font-size: $fs;
+    color: $color;
+    text-align: $text-align;
+}
+
+@mixin spaceStyle($margin, $padding, $width, $height) {
+    margin: $margin;
+    padding: $padding;
+    width: $width;
+    height: $height;
+}
+
+@mixin positions ($position, $top, $left) {
+    position: $position;
+    top: $top;
+    left: $left;
+}
+
+@mixin media ($size) {
+    @if ($size == XL) {
+        @media (max-width: 900px) {
+            @content;
+        }
+    } 
+    @else if ($size == L) {
+        @media (max-width: 750px) {
+            @content;
+        }
+    }
+    @else if ($size == M) {
+        @media (max-width: 500px) {
+            @content;
+        }
+    }
+}

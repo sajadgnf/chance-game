@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/css/style.css">
+    <title>Chance Game</title>
+</head>
+
+<body>
+    <div class="game">
+        <!-- first player -->
+        <div class="player" id="player-0">
+            <div class="player_header">
+                <h2>PLAYER 1</h2>
+                <p id="first_player_score" class="score">0</p>
+            </div>
+            <h1 class="win"></h1>
+
+            <div class="current">
+                <p class="current_header">CURRENT</p>
+                <p class="current_score">0</p>
+            </div>
+        </div>
+
+        <!-- sec player -->
+        <div class="player inactive" id="player-1">
+            <div class="player_header">
+                <h2>PLAYER 2</h2>
+                <p id="sec_player_score" class="score">0</p>
+            </div>
+            <h1 class="win"></h1>
+
+            <div class="current">
+                <p class="current_header">CURRENT</p>
+                <p class="current_score">0</p>
+            </div>
+        </div>
+
+        <!-- restart Button -->
+        <button class="restart_game">
+            <img src="assets/images/repeat.png" alt="repeat">
+            <p>NEW GAME</p>
+        </button>
+
+        <!-- Dice -->
+        <div class="dice_container">
+            <img class="dice" id="dice_1" src="" alt="Dice">
+            <img class="dice" id="dice_2" src="" alt="Dice">
+        </div>
+
+        <button class="roll">
+            <img src="assets/images/dice.png" alt="dice">
+            <p>ROLL DICE</p>
+        </button>
+
+        <button class="hold">
+            <img src="assets/images/hold.png" alt="hold">
+            <p>HOLD</p>
+        </button>
+
+        <div class="final_score_container">
+            <p class="final_score">Final Score</p>
+        </div>
+    </div>
+
+    <div class="modal">
+        <form class="modal_form">
+            <label class="modal_head" for="value">Insert Final Score</label>
+            <input class="modal_input" name="value" type="text" required>
+            <button class="modal_btn">Start</button>
+        </form>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
