@@ -64,8 +64,7 @@ const holdRoll = () => {
                 dices[0].style.display = "none"
                 dices[1].style.display = "none"
                 item.classList.add('win_container')
-                // item.style.display = "block"
-            }
+            } 
         }
     })
     nextPlayer()

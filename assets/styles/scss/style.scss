@@ -203,7 +203,6 @@ body {
 }
 
 // Meida
-
 @include media(XL) {
     .game {
         width: 750px;
@@ -231,37 +230,37 @@ body {
 }
 
 @include media(M) {
-    .game{
-        height: 635px;
-    }
-    .player.inactive {
-        display: none !important; 
+    .game {
+        flex-direction: column;
+
+        .player {
+            padding: 20px 0;
+        }
     }
 
-    .win {
-        margin-bottom: 300px;
-    }
+    .dice_container {
+        @include spaceStyle(0, 0, 100px !important, 100px !important);
+        display: flex;
+        justify-content: space-between;
+        left: 47% !important;
 
-    .player.win_container {
-        display: flex !important;
-    }
-
-    .player {
-        position: absolute;
-        width: 100%;
+        img {
+            margin-left: 5px !important;
+            @include spaceStyle(0, 0, 50px !important, 50px !important);
+        }
     }
 
     .restart_game {
-        @include positions(absolute, 58% !important, 20% !important);
+        @include positions(absolute, 51% !important, 20% !important);
     }
     .final_score_container {
-        @include positions(absolute, 48% !important, 20% !important);
+        @include positions(absolute, 41% !important, 20% !important);
     }
 
     .hold {
-        @include positions(absolute, 58% !important, 80% !important);
+        @include positions(absolute, 51% !important, 80% !important);
     }
     .roll {
-        @include positions(absolute, 48% !important, 80% !important);
+        @include positions(absolute, 40% !important, 80% !important);
     }
 }

@@ -294,47 +294,50 @@ body {
 }
 @media (max-width: 500px) {
   .game {
-    height: 635px;
+    flex-direction: column;
+  }
+  .game .player {
+    padding: 20px 0;
   }
 
-  .player.inactive {
-    display: none !important;
+  .dice_container {
+    margin: 0;
+    padding: 0;
+    width: 100px !important;
+    height: 100px !important;
+    display: flex;
+    justify-content: space-between;
+    left: 47% !important;
   }
-
-  .win {
-    margin-bottom: 300px;
-  }
-
-  .player.win_container {
-    display: flex !important;
-  }
-
-  .player {
-    position: absolute;
-    width: 100%;
+  .dice_container img {
+    margin-left: 5px !important;
+    margin: 0;
+    padding: 0;
+    width: 50px !important;
+    height: 50px !important;
   }
 
   .restart_game {
     position: absolute;
-    top: 58% !important;
+    top: 51% !important;
     left: 20% !important;
   }
 
   .final_score_container {
     position: absolute;
-    top: 48% !important;
+    top: 41% !important;
     left: 20% !important;
   }
 
   .hold {
     position: absolute;
-    top: 58% !important;
+    top: 51% !important;
     left: 80% !important;
   }
 
   .roll {
     position: absolute;
-    top: 48% !important;
+    top: 40% !important;
     left: 80% !important;
   }
 }
