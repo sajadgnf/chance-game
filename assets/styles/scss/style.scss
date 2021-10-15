@@ -155,7 +155,6 @@ body {
 }
 
 .win_container {
-    opacity: 1;
     color: #ca0a0a;
     background-color: rgb(71, 70, 70) !important;
 }
@@ -248,6 +247,10 @@ body {
             margin-left: 5px !important;
             @include spaceStyle(0, 0, 50px !important, 50px !important);
         }
+    }
+
+    .win {
+        margin-bottom: 0;
     }
 
     .restart_game {
