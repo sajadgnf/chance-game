@@ -317,6 +317,10 @@ body {
     height: 50px !important;
   }
 
+  .win {
+    margin-bottom: 0;
+  }
+
   .restart_game {
     position: absolute;
     top: 51% !important;
