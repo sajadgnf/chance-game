@@ -32,6 +32,7 @@ const rollDice = () => {
 
     const firstDice = Math.floor(Math.random() * 6) + 1
     const secDice = Math.floor(Math.random() * 6) + 1
+
     dices[0].style.display = "inline-block"
     dices[1].style.display = "inline-block"
     dices[0].src = `assets/images/dice-${firstDice}.png`
