@@ -5,7 +5,7 @@
 }
 
 @mixin shadowBox {
-    box-shadow: 0 0 5px 0 #333;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
@@ -30,7 +30,7 @@
 
 @mixin media ($size) {
     @if ($size == XL) {
-        @media (max-width: 900px) {
+        @media (max-width: 1080px) {
             @content;
         }
     } 
@@ -41,6 +41,11 @@
     }
     @else if ($size == M) {
         @media (max-width: 500px) {
+            @content;
+        }
+    }
+    @else if ($size == S) {
+        @media (max-width: 450px) {
             @content;
         }
     }

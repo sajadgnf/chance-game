@@ -9,13 +9,16 @@ const secPlayer = $.getElementById("player-1")
 const modalForm = $.querySelector(".modal_form")
 const cancleBtn = $.querySelector(".cancle_btn")
 const finalScore = $.querySelector(".final_score")
+const rules = $.querySelector(".rules")
+const rulesModal = $.querySelector(".rules_modal")
+const closeModal = $.querySelector(".close_modal")
 let sum = 0
 let activePlayer = 0
 let finalValue
 let finalDice
 
 // Modal
-const modal = event => {
+const setupModal = event => {
     event.preventDefault()
     event.target.parentNode.style.display = "none"
     finalValue = modalForm.children[1].value
@@ -64,7 +67,7 @@ const holdRoll = () => {
                 dices[0].style.display = "none"
                 dices[1].style.display = "none"
                 item.classList.add('win_container')
-            } 
+            }
         }
     })
     nextPlayer()
@@ -100,8 +103,26 @@ const restartGame = () => {
     modalForm.parentNode.style.display = "inline-block"
 }
 
+// rules modal
+const openRulesModal = () => {
+    rulesModal.style.display = 'inline-block'
+}
+
+const closeRulesModal = () => {
+    rulesModal.style.display = 'none'
+}
+
+window.addEventListener('click', event => {
+    if (event.target !== rulesModal && event.target !== rules) {
+        rulesModal.style.display = 'none'
+    }
+})
+
+
 // Events
-modalForm.addEventListener("submit", modal)
+modalForm.addEventListener("submit", setupModal)
 roll.addEventListener("click", rollDice)
 hold.addEventListener("click", holdRoll)
 restartGameBtn.addEventListener("click", restartGame)
+rules.addEventListener('click', openRulesModal)
+closeModal.addEventListener('click', closeRulesModal)

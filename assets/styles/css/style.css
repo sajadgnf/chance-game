@@ -12,12 +12,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: red;
-  background: linear-gradient(128deg, red 0%, #b26bff 100%);
+  background: #575757;
 }
 
 .game {
-  box-shadow: 0 0 5px 0 #333;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -38,7 +37,7 @@ body {
   height: 100%;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #ebc9c3;
+  background-color: #f5ece5;
   font-size: 20px;
   transition: all 0.5s ease;
 }
@@ -52,7 +51,7 @@ body {
   position: absolute;
   top: 10%;
   left: 50%;
-  box-shadow: 0 0 5px 0 #333;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -98,7 +97,7 @@ body {
   position: absolute;
   top: 68%;
   left: 50%;
-  box-shadow: 0 0 5px 0 #333;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -126,7 +125,7 @@ body {
   position: absolute;
   top: 77%;
   left: 50%;
-  box-shadow: 0 0 5px 0 #333;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -154,7 +153,7 @@ body {
   position: absolute;
   top: 87%;
   left: 50%;
-  box-shadow: 0 0 5px 0 #333;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -169,7 +168,7 @@ body {
 }
 
 .current {
-  box-shadow: 0 0 5px 0 #333;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -208,8 +207,26 @@ body {
   background-color: #474646 !important;
 }
 
-.modal {
-  box-shadow: 0 0 5px 0 #333;
+.rules {
+  position: absolute;
+  top: 92%;
+  left: 92%;
+  font-size: 20px;
+  color: #292929;
+  text-align: center;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 25px;
+  cursor: pointer;
+}
+
+.setup_score_modal,
+.rules_modal {
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin: 0;
   padding: 30px;
@@ -228,12 +245,14 @@ body {
     top: 37%;
   }
 }
-.modal .modal_head {
+.setup_score_modal .modal_head,
+.rules_modal .modal_head {
   font-size: 20px;
   color: #443636;
   text-align: center;
 }
-.modal .modal_input {
+.setup_score_modal .modal_input,
+.rules_modal .modal_input {
   margin: 20px auto;
   padding: 5px;
   width: 300px;
@@ -244,7 +263,8 @@ body {
   outline: none;
   display: block;
 }
-.modal .modal_btn {
+.setup_score_modal .modal_btn,
+.rules_modal .modal_btn {
   margin: 0;
   padding: 5px;
   width: 100px;
@@ -259,12 +279,39 @@ body {
   outline: none;
 }
 
-@media (max-width: 900px) {
-  .game {
-    width: 750px;
+.rules_modal {
+  height: auto;
+  display: none;
+  max-width: 90vw;
+}
+.rules_modal img {
+  position: absolute;
+  top: 20px;
+  left: 90%;
+  cursor: pointer;
+}
+.rules_modal h3 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+.rules_modal p {
+  font-size: 20px;
+}
+
+@media (max-width: 1080px) {
+  .rules {
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 40px;
   }
 }
 @media (max-width: 750px) {
+  .game {
+    height: 100vh;
+  }
+
   .player {
     font-size: 14px !important;
   }
@@ -291,6 +338,12 @@ body {
 .roll {
     font-size: 12px !important;
   }
+
+  .rules {
+    position: absolute;
+    top: 3%;
+    left: 50%;
+  }
 }
 @media (max-width: 500px) {
   .game {
@@ -299,6 +352,9 @@ body {
   .game .player {
     padding: 10px 0;
   }
+  .game .score {
+    font-size: 30px;
+  }
 
   .dice_container {
     margin: 0;
@@ -306,8 +362,8 @@ body {
     width: 100px !important;
     height: 100px !important;
     position: absolute;
-    top: 22% !important;
-    left: 47% !important;
+    top: 46% !important;
+    left: 46% !important;
     display: flex;
     justify-content: space-between;
   }
@@ -325,26 +381,86 @@ body {
 
   .restart_game {
     position: absolute;
-    top: 51% !important;
-    left: 20% !important;
+    top: 58% !important;
+    left: 10% !important;
   }
 
   .final_score_container {
     position: absolute;
-    top: 41% !important;
-    left: 20% !important;
+    top: 43% !important;
+    left: 5% !important;
   }
 
   .hold {
     position: absolute;
     top: 51% !important;
-    left: 80% !important;
+    left: 93% !important;
   }
 
   .roll {
     position: absolute;
-    top: 40% !important;
-    left: 80% !important;
+    top: 41% !important;
+    left: 94% !important;
+  }
+
+  .current {
+    margin: 0;
+    padding: 5px;
+    width: 120px;
+    height: 60px;
+    flex-direction: column;
+    background: #ca0a0a;
+  }
+  .current .current_header {
+    font-size: 0.7rem;
+  }
+  .current .current_score {
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .rules {
+    position: absolute;
+    top: 51%;
+    left: 6%;
+  }
+}
+@media (max-width: 450px) {
+  .restart_game p,
+.hold p,
+.roll p {
+    display: none;
+  }
+
+  .restart_game {
+    position: absolute;
+    top: 58% !important;
+    left: 4% !important;
+  }
+
+  .final_score_container {
+    position: absolute;
+    top: 43% !important;
+    left: 4% !important;
+  }
+
+  .hold {
+    position: absolute;
+    top: 51% !important;
+    left: 97% !important;
+  }
+
+  .roll {
+    position: absolute;
+    top: 42% !important;
+    left: 96% !important;
+  }
+
+  .rules {
+    position: absolute;
+    top: 51%;
+    left: 8%;
   }
 }
 

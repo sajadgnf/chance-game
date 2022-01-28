@@ -12,8 +12,7 @@
 body {
     @include flexStyle;
     min-height: 100vh;
-    background: rgb(255, 0, 0);
-    background: linear-gradient(128deg, rgba(255, 0, 0, 1) 0%, rgba(178, 107, 255, 1) 100%);
+    background: rgb(87, 87, 87);
 }
 
 .game {
@@ -27,7 +26,7 @@ body {
         @include spaceStyle(0, 0, 100%, 100%);
         flex-direction: column;
         justify-content: space-around;
-        background-color: #ebc9c3;
+        background-color: #f5ece5;
         font-size: 20px;
         transition: all 0.5s ease;
     }
@@ -160,8 +159,21 @@ body {
     background-color: rgb(71, 70, 70) !important;
 }
 
+.rules {
+    @include positions(absolute, 92%, 92%);
+    @include fontStyle(20px, rgb(41, 41, 41), center);
+    @include shadowBox;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 25px;
+    cursor: pointer;
+}
+
 // modal
-.modal {
+.setup_score_modal,
+.rules_modal {
     @include shadowBox;
     @include spaceStyle(0, 30px, 400px, 200px);
     position: fixed;
@@ -202,14 +214,38 @@ body {
     }
 }
 
+.rules_modal {
+    height: auto;
+    display: none;
+    max-width: 90vw;
+
+    img {
+        @include positions(absolute, 20px, 90%);
+        cursor: pointer;
+    }
+
+    h3 {
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+    p {
+        font-size: 20px;
+    }
+}
+
 // Meida
 @include media(XL) {
-    .game {
-        width: 750px;
+    .rules {
+        @include positions(absolute, 4%, 50%);
+        transform: translate(-50%);
+        border-radius: 40px;
     }
 }
 
 @include media(L) {
+    .game {
+        height: 100vh;
+    }
     .player {
         font-size: 14px !important;
     }
@@ -227,6 +263,10 @@ body {
     .roll {
         font-size: 12px !important;
     }
+
+    .rules {
+        @include positions(absolute, 3%, 50%);
+    }
 }
 
 @include media(M) {
@@ -236,11 +276,15 @@ body {
         .player {
             padding: 10px 0;
         }
+
+        .score {
+            font-size: 30px;
+        }
     }
 
     .dice_container {
         @include spaceStyle(0, 0, 100px !important, 100px !important);
-        @include positions(absolute, 22% !important, 47% !important);
+        @include positions(absolute, 46% !important, 46% !important);
         display: flex;
         justify-content: space-between;
 
@@ -255,16 +299,62 @@ body {
     }
 
     .restart_game {
-        @include positions(absolute, 51% !important, 20% !important);
+        @include positions(absolute, 58% !important, 10% !important);
     }
+
     .final_score_container {
-        @include positions(absolute, 41% !important, 20% !important);
+        @include positions(absolute, 43% !important, 5% !important);
     }
 
     .hold {
-        @include positions(absolute, 51% !important, 80% !important);
+        @include positions(absolute, 51% !important, 93% !important);
+    }
+
+    .roll {
+        @include positions(absolute, 41% !important, 94% !important);
+    }
+
+    .current {
+        @include spaceStyle(0, 5px, 120px, 60px);
+        flex-direction: column;
+        background: rgb(202, 10, 10);
+
+        .current_header {
+            font-size: 0.7rem;
+        }
+
+        .current_score {
+            @include fontStyle(18px, #fff, center);
+        }
+    }
+
+    .rules {
+        @include positions(absolute, 51%, 6%);
+    }
+}
+
+@include media(S) {
+    .restart_game p,
+    .hold p,
+    .roll p {
+        display: none;
+    }
+
+    .restart_game {
+        @include positions(absolute, 58% !important, 4% !important);
+    }
+    .final_score_container {
+        @include positions(absolute, 43% !important, 4% !important);
+    }
+
+    .hold {
+        @include positions(absolute, 51% !important, 97% !important);
     }
     .roll {
-        @include positions(absolute, 40% !important, 80% !important);
+        @include positions(absolute, 42% !important, 96% !important);
+    }
+
+    .rules {
+        @include positions(absolute, 51%, 8%);
     }
 }
