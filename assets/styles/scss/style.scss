@@ -160,13 +160,14 @@ body {
 }
 
 .rules {
-    @include positions(absolute, 92%, 92%);
+    @include positions(absolute, 3%, 50%);
+    transform: translate(-50%);
     @include fontStyle(20px, rgb(41, 41, 41), center);
     @include shadowBox;
+    border-radius: 40px;
     background: #fff;
     border: none;
     outline: none;
-    border-radius: 5px;
     padding: 5px 25px;
     cursor: pointer;
 }
@@ -236,9 +237,6 @@ body {
 // Meida
 @include media(XL) {
     .rules {
-        @include positions(absolute, 4%, 50%);
-        transform: translate(-50%);
-        border-radius: 40px;
     }
 }
 

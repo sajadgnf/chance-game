@@ -209,17 +209,18 @@ body {
 
 .rules {
   position: absolute;
-  top: 92%;
-  left: 92%;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%);
   font-size: 20px;
   color: #292929;
   text-align: center;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  border-radius: 40px;
   background: #fff;
   border: none;
   outline: none;
-  border-radius: 5px;
   padding: 5px 25px;
   cursor: pointer;
 }
@@ -298,15 +299,6 @@ body {
   font-size: 20px;
 }
 
-@media (max-width: 1080px) {
-  .rules {
-    position: absolute;
-    top: 4%;
-    left: 50%;
-    transform: translate(-50%);
-    border-radius: 40px;
-  }
-}
 @media (max-width: 750px) {
   .game {
     height: 100vh;
